@@ -176,21 +176,23 @@
         },
         dataType: "json",
         success: function (result) {
-            let list=[];
-            let random1=Math.floor(Math.random()*result.length);
-            let random2=Math.floor(Math.random()*result.length);
-            while(random2==random1)
-                random2=Math.floor(Math.random()*result.length);
+            if(result.length!=0) {
+                let list = [];
+                let random1 = Math.floor(Math.random() * result.length);
+                let random2 = Math.floor(Math.random() * result.length);
+                while (random2 == random1)
+                    random2 = Math.floor(Math.random() * result.length);
 
-            let random3=Math.floor(Math.random()*result.length);
-            while(random3==random1 || random3==random2)
-                random3=Math.floor(Math.random()*result.length);
-            console.log(random1+","+random2+","+random3);
-            list.push(result[random1]);
-            list.push(result[random2]);
-            list.push(result[random3]);
-            console.log(list);
-            favList(list);
+                let random3 = Math.floor(Math.random() * result.length);
+                while (random3 == random1 || random3 == random2)
+                    random3 = Math.floor(Math.random() * result.length);
+                console.log(random1 + "," + random2 + "," + random3);
+                list.push(result[random1]);
+                list.push(result[random2]);
+                list.push(result[random3]);
+                console.log(list);
+                favList(list);
+            }
 
         },
         error: function () {
